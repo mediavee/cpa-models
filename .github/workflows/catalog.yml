@@ -1,0 +1,52 @@
+name: catalog
+
+# Merges upstream into main, then publishes upstream's models.json plus mediavee/overlay.json to the
+# `catalog` branch, which CPA reads as models.catalog.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Merge upstream
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/router-for-me/models.git
+          git fetch upstream main
+          if ! git merge-base --is-ancestor upstream/main HEAD; then
+            git merge --no-edit upstream/main
+            git push origin HEAD:main
+          fi
+      - name: Build
+        run: python3 mediavee/build_catalog.py models.json mediavee/overlay.json "$RUNNER_TEMP/models.json"
+      - name: Publish
+        run: |
+          if git fetch origin catalog; then
+            git worktree add "$RUNNER_TEMP/catalog" origin/catalog
+            git -C "$RUNNER_TEMP/catalog" switch -C catalog
+          else
+            git worktree add --orphan -b catalog "$RUNNER_TEMP/catalog"
+          fi
+          cp "$RUNNER_TEMP/models.json" "$RUNNER_TEMP/catalog/models.json"
+          cd "$RUNNER_TEMP/catalog"
+          git add models.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: publish catalog from main $(git -C "$GITHUB_WORKSPACE" rev-parse --short HEAD)"
+            git push origin catalog
+          fi
