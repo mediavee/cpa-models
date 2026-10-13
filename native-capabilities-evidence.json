@@ -17,6 +17,12 @@
       "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool",
       "evidence": "Maintainer declaration: Anthropic-native Claude Sonnet 5.5 supports the native web_search server tool. This applies only to the claude catalog section; Antigravity-hosted Claude models do not support web search.",
       "retrieval": "Maintainer declaration, 2026-10-04"
+    },
+    "claude-haiku-5-5": {
+      "web_search": true,
+      "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool",
+      "evidence": "Maintainer declaration: Anthropic-native Claude Haiku 5.5 supports the native web_search server tool. This applies only to the claude catalog section; Antigravity-hosted Claude models do not support web search.",
+      "retrieval": "Maintainer declaration, 2026-10-13"
     }
   },
   "xai": {
