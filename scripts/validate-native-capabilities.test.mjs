@@ -62,11 +62,11 @@ test('does not borrow evidence from another provider', async (t) => {
   assert.throws(run, /must match exact documented model evidence or maintainer declaration, or remain unknown/);
 });
 
-test('declares all 55 existing Gemini entries including images and aliases', async () => {
+test('declares all 56 existing Gemini entries including images and aliases', async () => {
   const models = JSON.parse(await readFile(new URL('models.json', root), 'utf8'));
   const declaration = JSON.parse(await readFile(new URL('gemini-native-search-declaration.json', root), 'utf8'));
   assert.equal(declaration.kind, 'maintainer-declaration');
-  const expectedCounts = { gemini: 13, vertex: 15, 'gemini-cli': 7, aistudio: 15, antigravity: 5 };
+  const expectedCounts = { gemini: 13, vertex: 15, 'gemini-cli': 7, aistudio: 15, antigravity: 6 };
   for (const [provider, count] of Object.entries(expectedCounts)) {
     assert.equal(declaration.models[provider].length, count);
     for (const id of declaration.models[provider]) {
@@ -123,7 +123,7 @@ test('applies only exact declarations, preserves other fields, and is idempotent
     models.gemini.push({ id: 'gemini-unverified-future', description: 'Remain unknown' });
   });
   const before = await run.readModels();
-  assert.match(run.apply(), /Applied 55 Gemini native web-search declarations/);
+  assert.match(run.apply(), /Applied 56 Gemini native web-search declarations/);
   const after = await run.readModels();
   before.gemini.find((model) => model.id === 'gemini-2.5-flash').native_capabilities.web_search = true;
   assert.deepEqual(after, before);
