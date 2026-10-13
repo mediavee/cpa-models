@@ -3,7 +3,7 @@
   "web_search": true,
   "protocol": "gemini",
   "tool": "googleSearch",
-  "evidence": "The maintainer explicitly requested native web-search support for all 62 existing Gemini entries across gemini, vertex, gemini-cli, aistudio and antigravity, including image models and aliases. CPA clients invoke these searches through the Gemini generateContent protocol, not Responses.",
+  "evidence": "The maintainer explicitly requested native web-search support for all 58 existing Gemini entries across gemini, vertex, gemini-cli, aistudio and antigravity, including image models and aliases. CPA clients invoke these searches through the Gemini generateContent protocol, not Responses.",
   "verification": "Maintainer declaration, not model-by-model official documentation or live invocation evidence. Account, region and proxy-route availability still require runtime verification.",
   "models": {
     "gemini": [
@@ -19,7 +19,6 @@
       "gemini-3.5-flash",
       "gemini-3.5-flash-lite",
       "gemini-3.6-flash",
-      "gemini-3.7-flash",
       "gemini-3.8-flash"
     ],
     "vertex": [
@@ -37,7 +36,6 @@
       "gemini-3.5-flash",
       "gemini-3.5-flash-lite",
       "gemini-3.6-flash",
-      "gemini-3.7-flash",
       "gemini-3.8-flash"
     ],
     "gemini-cli": [
@@ -64,12 +62,10 @@
       "gemini-3.5-flash",
       "gemini-3.5-flash-lite",
       "gemini-3.6-flash",
-      "gemini-3.7-flash",
       "gemini-3.8-flash"
     ],
     "antigravity": [
       "gemini-3.6-flash-high",
-      "gemini-3.7-flash-high",
       "gemini-3.8-flash-high",
       "gemini-3-flash",
       "gemini-3.1-flash-image",
