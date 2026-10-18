@@ -41,7 +41,7 @@ test('rejects non-boolean declarations', async (t) => {
 
 test('rejects contradicting exact Codex evidence', async (t) => {
   const run = await fixture(t, (models) => {
-    models['codex-free'].find((model) => model.id === 'gpt-5.5').native_capabilities.web_search = false;
+    models['codex-free'].find((model) => model.id === 'gpt-5.6-terra').native_capabilities.web_search = false;
   });
   assert.throws(run, /does not match Codex client metadata/);
 });
