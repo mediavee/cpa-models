@@ -172,6 +172,29 @@
       }
     },
     {
+      "id": "gemini-4-argon",
+      "object": "model",
+      "type": "devin",
+      "owned_by": "google",
+      "display_name": "Gemini 4 Argon",
+      "context_length": 1048576,
+      "max_completion_tokens": 64000,
+      "supportedInputModalities": [
+        "text",
+        "image"
+      ],
+      "supportedOutputModalities": [
+        "text"
+      ],
+      "thinking": {
+        "levels": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    },
+    {
       "id": "kimi-k3",
       "object": "model",
       "type": "devin",
@@ -238,36 +261,11 @@
       }
     },
     {
-      "id": "claude-haiku-5-5",
+      "id": "claude-sonnet-5-5",
       "object": "model",
       "type": "devin",
       "owned_by": "anthropic",
-      "display_name": "Claude Haiku 5.5",
-      "context_length": 1000000,
-      "max_completion_tokens": 64000,
-      "supportedInputModalities": [
-        "text",
-        "image"
-      ],
-      "supportedOutputModalities": [
-        "text"
-      ],
-      "thinking": {
-        "levels": [
-          "low",
-          "medium",
-          "high",
-          "xhigh",
-          "max"
-        ]
-      }
-    },
-    {
-      "id": "claude-sonnet-5",
-      "object": "model",
-      "type": "devin",
-      "owned_by": "anthropic",
-      "display_name": "Claude Sonnet 5",
+      "display_name": "Claude Sonnet 5.5",
       "context_length": 1000000,
       "max_completion_tokens": 64000,
       "supportedInputModalities": [
@@ -391,6 +389,56 @@
       "type": "devin",
       "owned_by": "anthropic",
       "display_name": "Claude Fable 5",
+      "context_length": 1000000,
+      "max_completion_tokens": 64000,
+      "supportedInputModalities": [
+        "text",
+        "image"
+      ],
+      "supportedOutputModalities": [
+        "text"
+      ],
+      "thinking": {
+        "levels": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    },
+    {
+      "id": "claude-sonnet-5",
+      "object": "model",
+      "type": "devin",
+      "owned_by": "anthropic",
+      "display_name": "Claude Sonnet 5",
+      "context_length": 1000000,
+      "max_completion_tokens": 64000,
+      "supportedInputModalities": [
+        "text",
+        "image"
+      ],
+      "supportedOutputModalities": [
+        "text"
+      ],
+      "thinking": {
+        "levels": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "object": "model",
+      "type": "devin",
+      "owned_by": "anthropic",
+      "display_name": "Claude Haiku 5.5",
       "context_length": 1000000,
       "max_completion_tokens": 64000,
       "supportedInputModalities": [
@@ -560,6 +608,31 @@
       }
     },
     {
+      "id": "gpt-6-1-sol",
+      "object": "model",
+      "type": "devin",
+      "owned_by": "openai",
+      "display_name": "GPT-6.1 Sol",
+      "context_length": 1000000,
+      "max_completion_tokens": 64000,
+      "supportedInputModalities": [
+        "text",
+        "image"
+      ],
+      "supportedOutputModalities": [
+        "text"
+      ],
+      "thinking": {
+        "levels": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    },
+    {
       "id": "glm-5-2-1m",
       "object": "model",
       "type": "devin",
@@ -652,31 +725,6 @@
       }
     },
     {
-      "id": "inkling",
-      "object": "model",
-      "type": "devin",
-      "owned_by": "devin",
-      "display_name": "Inkling",
-      "context_length": 1048576,
-      "max_completion_tokens": 64000,
-      "supportedInputModalities": [
-        "text"
-      ],
-      "supportedOutputModalities": [
-        "text"
-      ],
-      "thinking": {
-        "levels": [
-          "none",
-          "low",
-          "medium",
-          "high",
-          "xhigh",
-          "max"
-        ]
-      }
-    },
-    {
       "id": "glm-5-3-flash",
       "object": "model",
       "type": "devin",
@@ -762,6 +810,54 @@
           "medium"
         ]
       }
+    },
+    {
+      "id": "swe-2-medium-lightning",
+      "object": "model",
+      "type": "devin",
+      "owned_by": "cognition",
+      "display_name": "SWE-2 Medium Lightning",
+      "context_length": 262144,
+      "max_completion_tokens": 64000,
+      "supportedInputModalities": [
+        "text",
+        "image"
+      ],
+      "supportedOutputModalities": [
+        "text"
+      ]
+    },
+    {
+      "id": "swe-2-high-lightning",
+      "object": "model",
+      "type": "devin",
+      "owned_by": "cognition",
+      "display_name": "SWE-2 High Lightning",
+      "context_length": 262144,
+      "max_completion_tokens": 64000,
+      "supportedInputModalities": [
+        "text",
+        "image"
+      ],
+      "supportedOutputModalities": [
+        "text"
+      ]
+    },
+    {
+      "id": "swe-2-max-lightning",
+      "object": "model",
+      "type": "devin",
+      "owned_by": "cognition",
+      "display_name": "SWE-2 Max Lightning",
+      "context_length": 262144,
+      "max_completion_tokens": 64000,
+      "supportedInputModalities": [
+        "text",
+        "image"
+      ],
+      "supportedOutputModalities": [
+        "text"
+      ]
     },
     {
       "id": "claude-opus-4-6",
@@ -953,38 +1049,6 @@
       "type": "devin",
       "owned_by": "anthropic",
       "display_name": "Claude Haiku 4.5",
-      "context_length": 200000,
-      "max_completion_tokens": 64000,
-      "supportedInputModalities": [
-        "text",
-        "image"
-      ],
-      "supportedOutputModalities": [
-        "text"
-      ]
-    },
-    {
-      "id": "MODEL_PRIVATE_2",
-      "object": "model",
-      "type": "devin",
-      "owned_by": "anthropic",
-      "display_name": "Claude Sonnet 4.5",
-      "context_length": 200000,
-      "max_completion_tokens": 64000,
-      "supportedInputModalities": [
-        "text",
-        "image"
-      ],
-      "supportedOutputModalities": [
-        "text"
-      ]
-    },
-    {
-      "id": "MODEL_PRIVATE_3",
-      "object": "model",
-      "type": "devin",
-      "owned_by": "anthropic",
-      "display_name": "Claude Sonnet 4.5",
       "context_length": 200000,
       "max_completion_tokens": 64000,
       "supportedInputModalities": [
