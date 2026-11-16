@@ -1,7 +1,7 @@
 name: catalog
 
-# Merges upstream into main, then publishes upstream's models.json plus mediavee/overlay.json to the
-# `catalog` branch, which CPA reads as models.catalog.
+# Merges upstream into main, then publishes the catalog build to the `catalog` branch, which CPA
+# reads as models.catalog. The build reads mediavee/overlay.json and mediavee/corrections.json.
 on:
   schedule:
     - cron: "17 * * * *"
