@@ -3,10 +3,9 @@
 Mediavee's CPA reads its model catalog from this fork's `catalog` branch:
 `https://raw.githubusercontent.com/mediavee/cpa-models/catalog/models.json` (CPA `models.catalog`).
 
-That file is upstream's `models.json` plus the entries of `overlay.json` upstream does not list yet,
-built by `build_catalog.py`. The `catalog` workflow merges `router-for-me/models` into `main` every hour,
-rebuilds the catalog and pushes it when it changed. Upstream's `models.json` is never edited here, so the
-merge cannot conflict.
+That file is built by `build_catalog.py` from upstream's `models.json`, plus:
 
-The overlay holds Muse Wonder Full, which Meta serves to Muse Code Power and Maximum subscriptions but
-upstream does not list. Remove an entry once upstream lists it; until then upstream's entry already wins.
+- `overlay.json` — full entries for ids upstream does not list yet. An id upstream already lists is skipped, so upstream's own entry wins once it lands. Remove the entry at that point.
+- `corrections.json` — drops, field patches, and adds that must survive the hourly merge of `router-for-me/models` into `main`. Upstream's `models.json` is never edited here, so that merge cannot conflict. A field patch names an id that the build has to find, and the build fails if it does not.
+
+The `catalog` workflow merges upstream into `main` every hour, rebuilds the catalog, and pushes the `catalog` branch when it changed.

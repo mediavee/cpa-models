@@ -36,10 +36,10 @@ model-level Codex client template. An exact slug match with
 
 | Catalog section | `web_search: true` model IDs |
 | --- | --- |
-| `codex-free` | `gpt-5.6-terra`, `gpt-5.6-luna`, `codex-auto-review` |
-| `codex-team` | `gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `codex-auto-review` |
-| `codex-plus` | `gpt-5.3-codex-spark`, `gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `codex-auto-review` |
-| `codex-pro` | `gpt-5.3-codex-spark`, `gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `codex-auto-review` |
+| `codex-free` | `gpt-6-chat-thinking`, `gpt-6-luna`, `gpt-6.1-terra`, `gpt-5.6-terra`, `gpt-5.6-luna`, `codex-auto-review` |
+| `codex-team` | `gpt-6-astra`, `gpt-6-sol`, `gpt-6.1-sol`, `gpt-6.1-terra`, `gpt-6-luna`, `gpt-6-chat-thinking`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `codex-auto-review` |
+| `codex-plus` | `gpt-6-astra`, `gpt-6-sol`, `gpt-6.1-sol`, `gpt-6.1-terra`, `gpt-6-luna`, `gpt-6-chat-thinking`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `codex-auto-review` |
+| `codex-pro` | `gpt-6-astra`, `gpt-6-sol`, `gpt-6.1-sol`, `gpt-6.1-terra`, `gpt-6-luna`, `gpt-6-chat-thinking`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `codex-auto-review` |
 
 `gpt-reserve` appears in the client template but not in `models.json`, so no
 catalog entry is created for it. No model currently has an evidence-backed
@@ -73,17 +73,18 @@ a false capability claim.
 ### Gemini maintainer declaration
 
 [`gemini-native-search-declaration.json`](./gemini-native-search-declaration.json)
-records the maintainer's explicit decision to mark all 56 existing Gemini
-entries as `native_capabilities.web_search: true`, including image models and
-aliases:
+records the maintainer's explicit decision to mark every Gemini entry
+listed in that file as `native_capabilities.web_search: true`, including image
+models and aliases. The test counts those ids from the file; it does not pin a
+total. The current file lists 66 entries:
 
 | Catalog section | Declared Gemini entries |
 | --- | ---: |
-| `gemini` | 13 |
-| `vertex` | 15 |
+| `gemini` | 14 |
+| `vertex` | 18 |
 | `gemini-cli` | 7 |
-| `aistudio` | 15 |
-| `antigravity` | 6 |
+| `aistudio` | 18 |
+| `antigravity` | 9 |
 
 The declaration enumerates exact provider/model pairs. It is **not** official
 model-by-model documentation or a live upstream test result, and it does not
@@ -112,7 +113,7 @@ Run:
 
 ```sh
 node scripts/validate-native-capabilities.mjs
-node --test scripts/validate-native-capabilities.test.mjs
+node --test scripts/validate-native-capabilities.test.mjs scripts/build-catalog.test.mjs
 ```
 
 The validator checks the schema and requires every Codex plan annotation to be
