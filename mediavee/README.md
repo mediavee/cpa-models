@@ -9,4 +9,5 @@ rebuilds the catalog and pushes it when it changed. Upstream's `models.json` is 
 merge cannot conflict.
 
 The overlay holds Muse Wonder Full, which Meta serves to Muse Code Power and Maximum subscriptions but
-upstream does not list. Remove an entry once upstream lists it; until then upstream's entry already wins.
+upstream does not list, and GPT-6.2 Sol and Astra for the paid Codex plans until upstream adds them; those
+copy GPT-6.1 Sol's and GPT-6 Astra's parameters. Remove an entry once upstream lists it; until then upstream's entry already wins.
